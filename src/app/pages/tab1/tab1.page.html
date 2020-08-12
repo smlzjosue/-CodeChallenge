@@ -1,0 +1,106 @@
+<ion-header [translucent]="true" *ngIf='!starting'>
+  <ion-toolbar>
+    <ion-title  *ngIf='!starting'>
+      Trivia Challenge!!!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" padding>
+  <ion-header collapse="condense">
+    <ion-toolbar  *ngIf='!starting'>
+      <ion-title>{{ currentQestion.category }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf='starting'>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              <h1 style="text-align: center; height: 300px; margin-top: 30px;"> 
+                Welcome to the Trivia Challenge!!!
+              </h1>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <h1 style="text-align: center; height: 250px;"> 
+              You will be presented with 10 True or False questions.
+            </h1>
+          </ion-label>
+        </ion-col> 
+      </ion-row>
+    </ion-grid>
+  </div>
+    
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <h1 style="text-align: center;"> 
+              Can you score 100%?
+            </h1>
+          </ion-label>
+        </ion-col> 
+      </ion-row>
+    </ion-grid>
+  </div>
+    
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label style="text-align: center;">
+            <ion-button expand='full' (click)='showQuestion()'>BEGIN</ion-button>
+          </ion-label>
+        </ion-col> 
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+   
+  </div>
+
+
+  <div *ngIf='!starting'>
+    <ion-card mode='ios'  color='primary' style="margin-top: 120px;">
+      <ion-card-header>
+        <ion-card-subtitle> Category: {{ currentQestion.category }}</ion-card-subtitle>
+        <ion-card-title> Difficulty {{ currentQestion.difficulty }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <h1>
+          {{ currentQestion.question }}
+        </h1>
+        <br>
+      
+        <ion-button  ion-color='success' (click)='netxQuestion(true)'> YES</ion-button>
+        <br>
+        <ion-button   ion-color='success' (click)='netxQuestion(false)'>NO</ion-button>
+        <br>
+      </ion-card-content>
+
+     
+
+    </ion-card>
+
+    
+    <div style="text-align: center;">
+      {{ current + 1}} of 10
+    </div>
+  </div>
+  
+
+</ion-content>

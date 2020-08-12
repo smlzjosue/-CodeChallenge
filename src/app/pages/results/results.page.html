@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>You Scored  {{allData.score}}/10 </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list style="height: 600px ;">
+    <ion-item *ngFor='let resp of allData.answers'>
+      <ion-label> {{resp.answer | plus}} {{resp.question}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label style="text-align: center;" style="margin-top: 120px;">
+          <ion-button expand='full' (click)='back()'>PLAY AGAIN?</ion-button>
+        </ion-label>
+      </ion-col> 
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
